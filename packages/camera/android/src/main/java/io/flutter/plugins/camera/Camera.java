@@ -410,7 +410,10 @@ public class Camera {
   }
 
   public void startPreview() throws CameraAccessException {
-    createCaptureSession(CameraDevice.TEMPLATE_PREVIEW, pictureImageReader.getSurface());
+   // createCaptureSession(CameraDevice.TEMPLATE_PREVIEW, pictureImageReader.getSurface());
+    if (pictureImageReader != null) {
+      createCaptureSession(CameraDevice.TEMPLATE_PREVIEW, pictureImageReader.getSurface());
+    }
   }
 
   public void startPreviewWithImageStream(EventChannel imageStreamChannel)
